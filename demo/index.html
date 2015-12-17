@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>slider3d</title>
+    <style>
+        
+        .silder {
+			margin: 0 auto;
+            perspective: 400px;
+            position: relative;
+            height: 320px;
+            width: 320px;
+            -webkit-transform-style: preserve-3d;
+            overflow: visible;
+            transform-origin: 50% 50%;
+            transform-style: preserve-3d;
+            /* 320px(item width) * 3(item count) */
+        }
+        
+        .first {
+            transform: translate3d(50%, 0, -100px) rotateY(-17deg);
+        }
+        
+        .last {
+            transform: translate3d(-50%, 0, -100px) rotateY(17deg);
+        }
+        
+        .middle {
+            transform: translate3d(0, 0, 1px);
+        }
+        
+        .item {
+            transition: transform 3s ease;
+            display: inline-block;
+            width: 310px;
+            font-size: 50px;
+            text-align: center;
+            padding: 50px 0;
+            background: #EFEFEF;
+            border: 5px solid #999;
+            color: #666;
+            position: absolute;
+            height: 160px;
+            top: 0;
+            left: 0;
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="silder">
+            <div class="item item1 middle">1</div>
+            <div class="item item2 last">2</div>
+            <div class="item item3 first">3</div>
+        </div>
+    <script src="http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js"></script>
+    <script>
+        $(function()
+        {
+            $('.item2').removeClass('last').addClass('middle');
+            $('.item1').addClass('first').removeClass('middle');
+            $('.item3').removeClass('first').addClass('last');
+        })
+    </script>
+</body>
+
+</html>
